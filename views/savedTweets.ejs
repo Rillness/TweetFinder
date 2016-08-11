@@ -1,0 +1,10 @@
+<% include ../partials/header %>
+<h1>Area where we will show the saved tweets.</h1>
+
+<%tweet.forEach(function(tweetl){%>
+  <ul>
+    <li><%= tweetl %></li>
+  </ul>
+<%});%>
+
+<% include ../partials/footer %>

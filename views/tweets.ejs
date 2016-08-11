@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<h1>Tweets Page</h1>
+  <h2>Searched For : <%= searchQuery %></h2>
+
+  <a href="/"> Search Again </a>
+<br>
+  <br>
+<div class="col-md-12">
+      <div class="chat" id="chat">
+      </div>
+    </div>
+
+
+<script>
+    $(function(){
+      var socket = io.connect();
+      var $chat = $('#chat');
+      var $tweeter = $('#tweeter');
+    //This below me is how the data is going to flow out.
+    socket.on('tweets', function(data){
+         $chat.append('<div class="well">'  + '<a href=' +  "http://www.twitter.com/"  + data.usersIn  + '>' + "@" +  data.usersIn + '</a>' + ": " + data.twit + '</div>'  );
+
+
+    });
+
+
+    });
+  </script>
+
+<% include ../partials/header %>
